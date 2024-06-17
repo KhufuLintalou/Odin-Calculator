@@ -1,31 +1,31 @@
-function add(num1, num2) {
-    return num1 + num2;
+function add(n1, n2) {
+    return n1 + n2;
 }
 
-function subtract(num1, num2) {
-    return num1 - num2;
+function subtract(n1, n2) {
+    return n1 - n2;
 }
 
-function multiply(num1, num2) {
-    return num1 * num2;
+function multiply(n1, n2) {
+    return n1 * n2;
 }
 
-function divide(num1, num2) {
-    return num1 / num2;
+function divide(n1, n2) {
+    return n1 / n2;
 }
 
 let firstNumber;
 let operator;
 let secondNumber;
 
-function operate(operator, number1, number2) {
+function operate(operator, num1, num2) {
     if (operator === "+") {
-        return add(number1, number2);
+        return add(num1, num2);
     } else if (operator === "-") {
-        return subtract(number1, number2);
+        return subtract(num1, num2);
     } else if (operator === "*") {
-        return multiply(number1, number2);
+        return multiply(num1, num2);
     } else if (operator === "/") {
-        return divide(number1, number2);
+        return divide(num1, num2);
     }
 }
