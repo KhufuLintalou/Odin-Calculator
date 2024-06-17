@@ -14,3 +14,18 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
+let firstNumber;
+let operator;
+let secondNumber;
+
+function operate(operator, number1, number2) {
+    if (operator === "+") {
+        return add(number1, number2);
+    } else if (operator === "-") {
+        return subtract(number1, number2);
+    } else if (operator === "*") {
+        return multiply(number1, number2);
+    } else if (operator === "/") {
+        return divide(number1, number2);
+    }
+}
