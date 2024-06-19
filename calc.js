@@ -33,8 +33,10 @@ function operate(operator, num1, num2) {
 let display = document.querySelector(".display");
 let digitButtons = document.querySelectorAll(".digit");
 let buttonContainer = document.querySelector(".button-container");
+let operatorButtons = document.querySelectorAll(".operator");
 
 let displayValue = document.createElement("span");
+
 buttonContainer.addEventListener("click", function(e) {
     let target = e.target;
     switch (target) {
@@ -77,6 +79,36 @@ buttonContainer.addEventListener("click", function(e) {
         case digitButtons[9]:
           displayValue.textContent += 9;
           display.appendChild(displayValue);
+          break;
+        
+        case operatorButtons[0]:
+          if (displayValue.textContent === "") {
+            displayValue.textContent = 0;
+          }
+          displayValue.textContent += " + ";
+          operatorButtons = "";
+          break;
+        case operatorButtons[1]:
+          if (displayValue.textContent === "") {
+            displayValue.textContent = 0;
+          }
+          displayValue.textContent += " - ";
+          operatorButtons = "";
+          break;
+        case operatorButtons[2]:
+          if (displayValue.textContent === "") {
+            displayValue.textContent = 0;
+          }
+          displayValue.textContent += " * ";
+          operatorButtons = "";
+          break;
+        case operatorButtons[3]:
+          if (displayValue.textContent === "") {
+            displayValue.textContent = 0;
+          }
+          displayValue.textContent += " / ";
+          operatorButtons = "";
+          break;
     }
 })
 
