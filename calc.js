@@ -183,14 +183,14 @@ buttonContainer.addEventListener("click", function(e) {
           break;
         
         case equalButton:
-          let firstNum = Number(display.textContent.split(" ").slice(0, 1));
+          let firstNum = display.textContent.split(" ").slice(0, 1).toString();
           let expOperator = display.textContent.split(" ").slice(1, 2).toString();
-          let secondNum = Number(display.textContent.split(" ").slice(2, 3));
-          if (!firstNum.toString() || secondNum.toString() || expOperator == null) {
-            display.textContent = operate(expOperator, firstNum, secondNum);
+          let secondNum = display.textContent.split(" ").slice(2, 3).toString();
+          if (firstNum && expOperator && secondNum !== "") {
+            display.textContent = operate(expOperator, Number(firstNum), Number(secondNum));
             result = display.textContent;
+            operatorButtons = document.querySelectorAll(".operator");
           }
-          operatorButtons = document.querySelectorAll(".operator");
     }
 })
 
