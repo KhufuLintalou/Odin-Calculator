@@ -40,6 +40,7 @@ let equalButton = document.querySelector(".equal");
 display.textContent = 0;
 let result = "";
 
+// One event listener for all the buttons, possible by using event delegation.
 buttonContainer.addEventListener("click", function(e) {
     let target = e.target;
     let firstNum = display.textContent.split(" ").slice(0, 1).toString();
@@ -157,7 +158,7 @@ buttonContainer.addEventListener("click", function(e) {
           if (expOperator == "") {
             display.textContent += " + ";
           }
-          if (!result == "") {
+          if (result !== "") {
             result = "";
           }
           break;
@@ -169,7 +170,7 @@ buttonContainer.addEventListener("click", function(e) {
           if (expOperator == "") {
             display.textContent += " - ";
           }
-          if (!result == "") {
+          if (result !== "") {
             result = "";
           }
           break;
@@ -181,7 +182,7 @@ buttonContainer.addEventListener("click", function(e) {
           if (expOperator == "") {
             display.textContent += " * ";
           }
-          if (!result == "") {
+          if (result !== "") {
             result = "";
           }
           break;
@@ -193,7 +194,7 @@ buttonContainer.addEventListener("click", function(e) {
           if (expOperator == "") {
             display.textContent += " / ";
           }
-          if (!result == "") {
+          if (result !== "") {
             result = "";
           }
           break;
@@ -203,14 +204,12 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent = "";
           }
           display.textContent = 0;
-          operatorButtons = document.querySelectorAll(".operator");
           break;
         
         case equalButton:
           if (firstNum && expOperator && secondNum !== "") {
             display.textContent = operate(expOperator, Number(firstNum), Number(secondNum));
             result = display.textContent;
-            operatorButtons = document.querySelectorAll(".operator");
           }
     }
 })
