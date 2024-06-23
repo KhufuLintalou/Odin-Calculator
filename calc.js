@@ -42,6 +42,10 @@ let result = "";
 
 buttonContainer.addEventListener("click", function(e) {
     let target = e.target;
+    let firstNum = display.textContent.split(" ").slice(0, 1).toString();
+    let expOperator = display.textContent.split(" ").slice(1, 2).toString();
+    let secondNum = display.textContent.split(" ").slice(2, 3).toString();
+
     switch (target) {
         case digitButtons[0]:
           if (display.textContent == 0) {
@@ -146,29 +150,49 @@ buttonContainer.addEventListener("click", function(e) {
           break;
         
         case operatorButtons[0]:
-          display.textContent += " + "
-          operatorButtons = "";
+          if (secondNum !== "") {
+            display.textContent = operate(expOperator, Number(firstNum), Number(secondNum));
+            display.textContent += " + ";
+          }
+          if (expOperator == "") {
+            display.textContent += " + ";
+          }
           if (!result == "") {
             result = "";
           }
           break;
         case operatorButtons[1]:
-          display.textContent += " - ";
-          operatorButtons = "";
+          if (secondNum !== "") {
+            display.textContent = operate(expOperator, Number(firstNum), Number(secondNum));
+            display.textContent += " - ";
+          }
+          if (expOperator == "") {
+            display.textContent += " - ";
+          }
           if (!result == "") {
             result = "";
           }
           break;
         case operatorButtons[2]:
-          display.textContent += " * ";
-          operatorButtons = "";
+          if (secondNum !== "") {
+            display.textContent = operate(expOperator, Number(firstNum), Number(secondNum));
+            display.textContent += " * ";
+          }
+          if (expOperator == "") {
+            display.textContent += " * ";
+          }
           if (!result == "") {
             result = "";
           }
           break;
         case operatorButtons[3]:
-          display.textContent += " / ";
-          operatorButtons = "";
+          if (secondNum !== "") {
+            display.textContent = operate(expOperator, Number(firstNum), Number(secondNum));
+            display.textContent += " / ";
+          }
+          if (expOperator == "") {
+            display.textContent += " / ";
+          }
           if (!result == "") {
             result = "";
           }
@@ -183,9 +207,6 @@ buttonContainer.addEventListener("click", function(e) {
           break;
         
         case equalButton:
-          let firstNum = display.textContent.split(" ").slice(0, 1).toString();
-          let expOperator = display.textContent.split(" ").slice(1, 2).toString();
-          let secondNum = display.textContent.split(" ").slice(2, 3).toString();
           if (firstNum && expOperator && secondNum !== "") {
             display.textContent = operate(expOperator, Number(firstNum), Number(secondNum));
             result = display.textContent;
