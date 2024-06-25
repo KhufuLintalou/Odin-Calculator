@@ -14,10 +14,6 @@ function divide(n1, n2) {
     return n1 / n2;
 }
 
-let firstNumber;
-let operator;
-let secondNumber;
-
 function operate(operator, num1, num2) {
     if (operator === '+') {
         return add(num1, num2);
@@ -44,7 +40,7 @@ let result = "";
 buttonContainer.addEventListener("click", function(e) {
     let target = e.target;
     let firstNum = display.textContent.split(" ").slice(0, 1).toString();
-    let expOperator = display.textContent.split(" ").slice(1, 2).toString();
+    let operator = display.textContent.split(" ").slice(1, 2).toString();
     let secondNum = display.textContent.split(" ").slice(2, 3).toString();
 
     switch (target) {
@@ -152,10 +148,13 @@ buttonContainer.addEventListener("click", function(e) {
         
         case operatorButtons[0]:
           if (secondNum !== "") {
-            display.textContent = operate(expOperator, Number(firstNum), Number(secondNum));
+            display.textContent = operate(operator, Number(firstNum), Number(secondNum));
+            if (display.textContent == "") {
+              display.textContent = 0;
+            }
             display.textContent += " + ";
           }
-          if (expOperator == "") {
+          if (operator == "") {
             display.textContent += " + ";
           }
           if (result !== "") {
@@ -164,10 +163,13 @@ buttonContainer.addEventListener("click", function(e) {
           break;
         case operatorButtons[1]:
           if (secondNum !== "") {
-            display.textContent = operate(expOperator, Number(firstNum), Number(secondNum));
+            display.textContent = operate(operator, Number(firstNum), Number(secondNum));
+            if (display.textContent == "") {
+              display.textContent = 0;
+            }
             display.textContent += " - ";
           }
-          if (expOperator == "") {
+          if (operator == "") {
             display.textContent += " - ";
           }
           if (result !== "") {
@@ -176,10 +178,13 @@ buttonContainer.addEventListener("click", function(e) {
           break;
         case operatorButtons[2]:
           if (secondNum !== "") {
-            display.textContent = operate(expOperator, Number(firstNum), Number(secondNum));
+            display.textContent = operate(operator, Number(firstNum), Number(secondNum));
+            if (display.textContent == "") {
+              display.textContent = 0;
+            }
             display.textContent += " * ";
           }
-          if (expOperator == "") {
+          if (operator == "") {
             display.textContent += " * ";
           }
           if (result !== "") {
@@ -188,10 +193,13 @@ buttonContainer.addEventListener("click", function(e) {
           break;
         case operatorButtons[3]:
           if (secondNum !== "") {
-            display.textContent = operate(expOperator, Number(firstNum), Number(secondNum));
+            display.textContent = operate(operator, Number(firstNum), Number(secondNum));
+            if (display.textContent == "") {
+              display.textContent = 0;
+            }
             display.textContent += " / ";
           }
-          if (expOperator == "") {
+          if (operator == "") {
             display.textContent += " / ";
           }
           if (result !== "") {
@@ -207,9 +215,15 @@ buttonContainer.addEventListener("click", function(e) {
           break;
         
         case equalButton:
-          if (firstNum && expOperator && secondNum !== "") {
-            display.textContent = operate(expOperator, Number(firstNum), Number(secondNum));
+          if (operator == "/" && secondNum == "0") {
+            display.textContent = "Cannot Divide By Zero";
             result = display.textContent;
+          } else if (firstNum && operator && secondNum !== "") {
+            display.textContent = operate(operator, Number(firstNum), Number(secondNum));
+            result = display.textContent;
+            if (display.textContent == "") {
+              display.textContent = 0;
+            }
           }
     }
 })
