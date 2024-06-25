@@ -32,6 +32,7 @@ let buttonContainer = document.querySelector(".button-container");
 let operatorButtons = document.querySelectorAll(".operator");
 let clearButton = document.querySelector(".clear");
 let equalButton = document.querySelector(".equal");
+let backspace = document.querySelector(".backspace");
 
 display.textContent = 0;
 let result = "";
@@ -48,9 +49,11 @@ buttonContainer.addEventListener("click", function(e) {
           if (display.textContent == 0) {
             display.textContent = "";
           }
+
           if (result !== "") {
             display.textContent = "";
           }
+
           display.textContent += 0;
           result = "";
           break;
@@ -59,9 +62,11 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent = "";
             result = "";
           }
+
           if (result !== "") {
             display.textContent = "";
           }
+
           display.textContent += 1;
           result = "";
           break;
@@ -69,9 +74,11 @@ buttonContainer.addEventListener("click", function(e) {
           if (display.textContent == 0) {
             display.textContent = "";
           }
+          
           if (result !== "") {
             display.textContent = "";
           }
+
           display.textContent += 2;
           result = "";
           break;
@@ -79,9 +86,11 @@ buttonContainer.addEventListener("click", function(e) {
           if (display.textContent == 0) {
             display.textContent = "";
           }
+
           if (result !== "") {
             display.textContent = "";
           }
+
           display.textContent += 3;
           result = "";
           break;
@@ -89,9 +98,11 @@ buttonContainer.addEventListener("click", function(e) {
           if (display.textContent == 0) {
             display.textContent = "";
           }
+
           if (result !== "") {
             display.textContent = "";
           }
+
           display.textContent += 4;
           result = "";
           break;
@@ -99,9 +110,11 @@ buttonContainer.addEventListener("click", function(e) {
           if (display.textContent == 0) {
             display.textContent = "";
           }
+
           if (result !== "") {
             display.textContent = "";
           }
+
           display.textContent += 5;
           result = "";
           break;
@@ -109,9 +122,11 @@ buttonContainer.addEventListener("click", function(e) {
           if (display.textContent == 0) {
             display.textContent = "";
           }
+          
           if (result !== "") {
             display.textContent = "";
           }
+
           display.textContent += 6;
           result = "";
           break;
@@ -119,9 +134,11 @@ buttonContainer.addEventListener("click", function(e) {
           if (display.textContent == 0) {
             display.textContent = "";
           }
+
           if (result !== "") {
             display.textContent = "";
           }
+
           display.textContent += 7;
           result = "";
           break;
@@ -129,9 +146,11 @@ buttonContainer.addEventListener("click", function(e) {
           if (display.textContent == 0) {
             display.textContent = "";
           }
+
           if (result !== "") {
             display.textContent = "";
           }
+
           display.textContent += 8;
           result = "";
           break;
@@ -139,9 +158,11 @@ buttonContainer.addEventListener("click", function(e) {
           if (display.textContent == 0) {
             display.textContent = "";
           }
+
           if (result !== "") {
             display.textContent = "";
           }
+
           display.textContent += 9;
           result = "";
           break;
@@ -154,9 +175,11 @@ buttonContainer.addEventListener("click", function(e) {
             }
             display.textContent += " + ";
           }
+
           if (operator == "") {
             display.textContent += " + ";
           }
+
           if (result !== "") {
             result = "";
           }
@@ -169,9 +192,11 @@ buttonContainer.addEventListener("click", function(e) {
             }
             display.textContent += " - ";
           }
+
           if (operator == "") {
             display.textContent += " - ";
           }
+          
           if (result !== "") {
             result = "";
           }
@@ -184,9 +209,11 @@ buttonContainer.addEventListener("click", function(e) {
             }
             display.textContent += " * ";
           }
+
           if (operator == "") {
             display.textContent += " * ";
           }
+
           if (result !== "") {
             result = "";
           }
@@ -199,9 +226,11 @@ buttonContainer.addEventListener("click", function(e) {
             }
             display.textContent += " / ";
           }
+
           if (operator == "") {
             display.textContent += " / ";
           }
+
           if (result !== "") {
             result = "";
           }
@@ -225,6 +254,25 @@ buttonContainer.addEventListener("click", function(e) {
               display.textContent = 0;
             }
           }
-    }
+          break;
+        
+        case backspace:
+          if (secondNum == "") {
+          display.textContent = display.textContent.replaceAll(" ", "").replace(operator, "");
+          } else {
+            display.textContent = display.textContent.split("").toSpliced(-1, 1).join("");
+          }
+
+          if (firstNum !== "" && operator == "") {
+            display.textContent = display.textContent.split("").toSpliced(-1, 1).join("");
+            if (firstNum.length == 1) {
+              display.textContent = 0;
+            }
+          }
+
+          if (result == "Cannot Divide By Zero") {
+            display.textContent = 0;
+          }
+    }   
 })
 
