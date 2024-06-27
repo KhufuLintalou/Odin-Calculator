@@ -277,6 +277,10 @@ buttonContainer.addEventListener("click", function(e) {
           break;
         
         case backspace:
+          if (result !== "") {
+            result = "";
+          }
+          
           if (secondNum == "") {
           display.textContent = display.textContent.replaceAll(" ", "").replace(operator, "");
           } else {
