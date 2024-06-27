@@ -33,6 +33,8 @@ let operatorButtons = document.querySelectorAll(".operator");
 let clearButton = document.querySelector(".clear");
 let equalButton = document.querySelector(".equal");
 let backspace = document.querySelector(".backspace");
+let decimal = document.querySelector(".decimal");
+let sign = document.querySelector(".sign");
 
 display.textContent = 0;
 let result = "";
@@ -46,7 +48,7 @@ buttonContainer.addEventListener("click", function(e) {
 
     switch (target) {
         case digitButtons[0]:
-          if (display.textContent == 0) {
+          if (display.textContent == "0") {
             display.textContent = "";
           }
 
@@ -58,7 +60,7 @@ buttonContainer.addEventListener("click", function(e) {
           result = "";
           break;
         case digitButtons[1]:
-          if (display.textContent == 0) {
+          if (display.textContent === "0") {
             display.textContent = "";
             result = "";
           }
@@ -71,7 +73,7 @@ buttonContainer.addEventListener("click", function(e) {
           result = "";
           break;
         case digitButtons[2]:
-          if (display.textContent == 0) {
+          if (display.textContent === "0") {
             display.textContent = "";
           }
           
@@ -83,7 +85,7 @@ buttonContainer.addEventListener("click", function(e) {
           result = "";
           break;
         case digitButtons[3]:
-          if (display.textContent == 0) {
+          if (display.textContent == "0") {
             display.textContent = "";
           }
 
@@ -95,7 +97,7 @@ buttonContainer.addEventListener("click", function(e) {
           result = "";
           break;
         case digitButtons[4]:
-          if (display.textContent == 0) {
+          if (display.textContent == "0") {
             display.textContent = "";
           }
 
@@ -107,7 +109,7 @@ buttonContainer.addEventListener("click", function(e) {
           result = "";
           break;
         case digitButtons[5]:
-          if (display.textContent == 0) {
+          if (display.textContent == "0") {
             display.textContent = "";
           }
 
@@ -119,7 +121,7 @@ buttonContainer.addEventListener("click", function(e) {
           result = "";
           break;
         case digitButtons[6]:
-          if (display.textContent == 0) {
+          if (display.textContent == "0") {
             display.textContent = "";
           }
           
@@ -131,7 +133,7 @@ buttonContainer.addEventListener("click", function(e) {
           result = "";
           break;
         case digitButtons[7]:
-          if (display.textContent == 0) {
+          if (display.textContent == "0") {
             display.textContent = "";
           }
 
@@ -143,7 +145,7 @@ buttonContainer.addEventListener("click", function(e) {
           result = "";
           break;
         case digitButtons[8]:
-          if (display.textContent == 0) {
+          if (display.textContent == "0") {
             display.textContent = "";
           }
 
@@ -155,7 +157,7 @@ buttonContainer.addEventListener("click", function(e) {
           result = "";
           break;
         case digitButtons[9]:
-          if (display.textContent == 0) {
+          if (display.textContent == "0") {
             display.textContent = "";
           }
 
@@ -293,6 +295,17 @@ buttonContainer.addEventListener("click", function(e) {
               display.textContent = 0;
             }
           }
+          break;
+
+        case decimal:
+          if (!firstNum.includes(".")) {
+            display.textContent += ".";
+          }
+          
+          if (!secondNum.includes(".") && secondNum !== "") {
+            display.textContent += ".";
+          }
+          break;
     }   
 })
 
