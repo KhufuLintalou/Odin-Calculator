@@ -298,12 +298,16 @@ buttonContainer.addEventListener("click", function(e) {
           break;
 
         case decimal:
-          if (!firstNum.includes(".")) {
+          if (!firstNum.includes(".") && operator == "") {
             display.textContent += ".";
           }
           
-          if (!secondNum.includes(".") && secondNum !== "") {
+          if (!secondNum.includes(".") && secondNum == "") {
             display.textContent += ".";
+          }
+
+          if (result !== "") {
+            result = "";
           }
           break;
     }   
