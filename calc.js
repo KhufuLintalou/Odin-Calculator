@@ -283,9 +283,9 @@ buttonContainer.addEventListener("click", function(e) {
             result = "";
           }
 
-          if (secondNum == "") {
-          display.textContent = display.textContent.replaceAll(" ", "").replace(operator, "");
-          } else {
+          if (secondNum == "" && operator !== "") {
+            display.textContent = display.textContent.split(" ").toSpliced(1, 1).join("");;
+          } else if (secondNum !== ""){
             display.textContent = display.textContent.split("").toSpliced(-1, 1).join("");
           }
 
@@ -298,12 +298,44 @@ buttonContainer.addEventListener("click", function(e) {
           break;
 
         case decimal:
-          if (!firstNum.includes(".") && operator == "") {
-            display.textContent += ".";
+          if (!firstNum.includes(".")) {
+            if (operator == "") {
+              display.textContent += ".";
+            }
           }
           
-          if (!secondNum.includes(".") && secondNum == "") {
+          if (!secondNum.includes(".")) {
+            if (operator !== "")
             display.textContent += ".";
+          }
+
+          if (result !== "") {
+            result = "";
+          }
+          break;
+        
+        case sign:
+          if (!firstNum.includes("-") && operator == "") {
+            display.textContent = firstNum.split("").toSpliced(0, 0, "-").join("");
+          }
+          
+          let emptySpace = " ";
+          if (!secondNum.includes("-") && secondNum !== "") {
+            display.textContent = display.textContent.split(" ").toSpliced(1, 2, "",emptySpace + operator + emptySpace,"",
+            secondNum.split("").toSpliced(0, 0, "-").join("")).join("");
+          }  // First split the text on display by the spaces, so now have an array of 3 elements. Then remove 2 elements
+             // from index 1, this leaves only one element at index 0. After that add the operator that was on the
+             // display text, the "emptySpace" are needed for my crappy code to work. Finally add in the "secondNum"
+             // that was on the display but with the "-" sign in front, then join that splitted "secondNum" and
+             // join the whole thing together into a string.
+
+          if (firstNum.includes("-") && operator == "") {
+            display.textContent = display.textContent.replace("-", "");
+          }
+
+          if (secondNum.includes("-") && operator !== "") {
+            display.textContent = display.textContent.split(" ").toSpliced(1, 2, "",emptySpace + operator + emptySpace,"",
+            secondNum.replace("-", "")).join("");
           }
 
           if (result !== "") {
