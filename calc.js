@@ -173,6 +173,11 @@ buttonContainer.addEventListener("click", function(e) {
             if (display.textContent == "") {
               display.textContent = 0;
             }
+            
+            if (operator == "/" && secondNum == "0") {
+              alert("Cannot Divide By Zero.");
+              display.textContent = 0;
+            }
             display.textContent += " + ";
           }
 
@@ -193,6 +198,11 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent += " - ";
           }
 
+          if (operator == "/" && secondNum == "0") {
+            alert("Cannot Divide By Zero.");
+            display.textContent = 0;
+          }
+
           if (operator == "") {
             display.textContent += " - ";
           }
@@ -210,6 +220,11 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent += " * ";
           }
 
+          if (operator == "/" && secondNum == "0") {
+            alert("Cannot Divide By Zero.");
+            display.textContent = 0;
+          }
+
           if (operator == "") {
             display.textContent += " * ";
           }
@@ -225,6 +240,11 @@ buttonContainer.addEventListener("click", function(e) {
               display.textContent = 0;
             }
             display.textContent += " / ";
+          }
+
+          if (operator == "/" && secondNum == "0") {
+            alert("Cannot Divide By Zero.");
+            display.textContent = 0;
           }
 
           if (operator == "") {
@@ -245,8 +265,8 @@ buttonContainer.addEventListener("click", function(e) {
         
         case equalButton:
           if (operator == "/" && secondNum == "0") {
-            display.textContent = "Cannot Divide By Zero";
-            result = display.textContent;
+            alert("Cannot Divide By Zero.");
+            display.textContent = 0;
           } else if (firstNum && operator && secondNum !== "") {
             display.textContent = operate(operator, Number(firstNum), Number(secondNum));
             result = display.textContent;
@@ -268,10 +288,6 @@ buttonContainer.addEventListener("click", function(e) {
             if (firstNum.length == 1) {
               display.textContent = 0;
             }
-          }
-
-          if (result == "Cannot Divide By Zero") {
-            display.textContent = 0;
           }
     }   
 })
