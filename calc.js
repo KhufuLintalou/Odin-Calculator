@@ -54,7 +54,7 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent = "";
           }
 
-          display.textContent += 0;
+          display.textContent += 9;
           result = "";
           break;
         case digitButtons[1]:
@@ -67,7 +67,7 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent = "";
           }
 
-          display.textContent += 1;
+          display.textContent += 8;
           result = "";
           break;
         case digitButtons[2]:
@@ -79,7 +79,7 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent = "";
           }
 
-          display.textContent += 2;
+          display.textContent += 7;
           result = "";
           break;
         case digitButtons[3]:
@@ -91,7 +91,7 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent = "";
           }
 
-          display.textContent += 3;
+          display.textContent += 6;
           result = "";
           break;
         case digitButtons[4]:
@@ -103,7 +103,7 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent = "";
           }
 
-          display.textContent += 4;
+          display.textContent += 5;
           result = "";
           break;
         case digitButtons[5]:
@@ -115,7 +115,7 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent = "";
           }
 
-          display.textContent += 5;
+          display.textContent += 4;
           result = "";
           break;
         case digitButtons[6]:
@@ -127,7 +127,7 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent = "";
           }
 
-          display.textContent += 6;
+          display.textContent += 3;
           result = "";
           break;
         case digitButtons[7]:
@@ -139,7 +139,7 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent = "";
           }
 
-          display.textContent += 7;
+          display.textContent += 2;
           result = "";
           break;
         case digitButtons[8]:
@@ -151,7 +151,7 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent = "";
           }
 
-          display.textContent += 8;
+          display.textContent += 1;
           result = "";
           break;
         case digitButtons[9]:
@@ -163,7 +163,7 @@ buttonContainer.addEventListener("click", function(e) {
             display.textContent = "";
           }
 
-          display.textContent += 9;
+          display.textContent += 0;
           result = "";
           break;
         
@@ -280,7 +280,7 @@ buttonContainer.addEventListener("click", function(e) {
           if (result !== "") {
             result = "";
           }
-          
+
           if (secondNum == "") {
           display.textContent = display.textContent.replaceAll(" ", "").replace(operator, "");
           } else {
