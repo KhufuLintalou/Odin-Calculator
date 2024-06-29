@@ -1,6 +1,7 @@
 * {
     font-family: sans-serif;
     box-sizing: border-box;
+    color: white;
 }
 
 body {
@@ -8,16 +9,21 @@ body {
     justify-content: center;
     height: 100vh;
     align-items: center;
+    background-color: rgb(59, 59, 59);
 }
 
 .button-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .button-box1 {
-    width: 250px;
+    width: 225px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5px;
 }
 
 .display {
@@ -25,16 +31,19 @@ body {
     text-align: right;
     overflow-x: scroll;
     width: 420px;
+    scrollbar-color: rgb(193, 192, 192) black;
 }
 
 .digit,
 .sign,
 .decimal,
 .operator {
-    width: 80px;
+    width: 75px;
     height: 80px;
-    margin-top: 3px;
     font-size: 25px;
+    background-color: black;
+    border: none;
+    transition-duration: 0.1s;
 }
 
 .button-box2 {
@@ -44,17 +53,74 @@ body {
 .backspace,
 .clear {
     height: 40px;
-    width: 80px;
+    background-color: black;
+    border: none;
+    font-size: 15px;
+    transition-duration: 0.1s;
 }
 
 .button-box3 {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-top: 3px;
+    margin: 0px;
+    width: 105px;
 }
 
 .equal {
     flex-grow: 1;
     font-size: 40px;
+    background-color: rgb(33, 33, 34);
+    border: none;
+    transition-duration: 0.1s;
+}
+
+.container {
+    background-color: black;
+    border: 2px solid white;
+}
+
+.digit:hover,
+.sign:hover,
+.decimal:hover,
+.operator:hover {
+    background-color: rgb(80, 78, 78);
+    border: 3px solid white;
+}
+.digit:active,
+.sign:active,
+.decimal:active,
+.operator:active {
+    background-color: rgb(43, 42, 42);
+    font-size: 20px;
+    height: 80px;
+}
+
+.backspace:hover {
+    border: 2px solid white;
+    background-color: rgb(44, 59, 69);
+}
+.backspace:active {
+    font-size: 14px;
+    border: 2px solid rgb(189, 189, 189);
+}
+
+.clear:hover {
+    background-color: red;
+    border: 2px solid white;
+    font-size: large;
+    font-weight: bold;
+}
+.clear:active {
+    background-color: rgb(173, 2, 2);
+}
+
+.equal:hover {
+    background-color: rgb(186, 182, 182);
+    border: none;
+    color: black;
+}
+.equal:active {
+    font-size: 35px;
+    background-color: rgb(149, 145, 145);
 }
