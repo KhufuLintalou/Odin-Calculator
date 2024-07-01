@@ -284,14 +284,17 @@ buttonContainer.addEventListener("click", function(e) {
           }
 
           if (secondNum == "" && operator !== "") {
-            display.textContent = display.textContent.split(" ").toSpliced(1, 1).join("");;
+            display.textContent = display.textContent.split(" ").toSpliced(1, 1).join("");
           } else if (secondNum !== ""){
             display.textContent = display.textContent.split("").toSpliced(-1, 1).join("");
+            if (secondNum.length == 2 && secondNum.includes("-")) {
+              display.textContent = display.textContent.split("").toSpliced(-1, 2).join("");
+            }
           }
 
           if (firstNum !== "" && operator == "") {
             display.textContent = display.textContent.split("").toSpliced(-1, 1).join("");
-            if (firstNum.length == 1) {
+            if (firstNum.length == 1 || firstNum.length == 2 && firstNum.includes("-")) {
               display.textContent = 0;
             }
           }
@@ -315,7 +318,7 @@ buttonContainer.addEventListener("click", function(e) {
           break;
         
         case sign:
-          if (!firstNum.includes("-") && operator == "") {
+          if (!firstNum.includes("-") && operator == "" && firstNum !== "0") {
             display.textContent = firstNum.split("").toSpliced(0, 0, "-").join("");
           }
           
